@@ -12,6 +12,6 @@ private:
 public:
     Zipper();
 
-    std::vector<int> encode();
+    std::vector<int> encode(std::string& text);
     void decode();
 };

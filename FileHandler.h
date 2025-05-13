@@ -3,12 +3,18 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <vector>
+
 
 class FileHandler
 {
 private:
-    std::ifstream file;
+    std::fstream file;
+
     std::string buffer;
+
+    std::string file_name_before_dot;
+    std::string file_extention;
 
 public:
     FileHandler(std::string file_name);
@@ -17,4 +23,6 @@ public:
     FileHandler &operator=(const FileHandler &) = delete;
 
     const std::string &read_file();
+
+    const void write_file(std::vector<int>&);
 };

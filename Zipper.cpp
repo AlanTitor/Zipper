@@ -1,5 +1,4 @@
 #include "Zipper.h"
-#include "FileHandler.h"
 
 #include <map>
 #include <vector>
@@ -12,10 +11,9 @@ Zipper::Zipper()
     }
 }
 
-std::vector<int> Zipper::encode()
+std::vector<int> Zipper::encode(std::string& text)
 {
-    // FileHandler file("hello.txt");
-    std::string text = "ababaabbaa";
+    // 
     std::map<std::string, int> current_dict;
 
     int counter = 256;

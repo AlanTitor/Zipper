@@ -5,10 +5,14 @@
 
 FileHandler::FileHandler(std::string file_name) : file(file_name)
 {
+
     if (!file.is_open())
     {
         throw std::runtime_error("failed to open file " + file_name);
     }
+
+    file_name_before_dot = file_name.substr(0, file_name.find_last_of('.'));
+    file_extention = file_name.substr(file_name.find_last_of('.') + 1);
 }
 
 FileHandler::~FileHandler()
@@ -37,4 +41,13 @@ const std::string &FileHandler::read_file()
     }
 
     return buffer;
+}
+
+const void FileHandler::write_file(std::vector<int>& text)
+{
+    std::ofstream new_file(file_name_before_dot + ".zp", std::ios::binary);
+
+    for(auto i : text){
+        new_file << i;
+    }
 }
