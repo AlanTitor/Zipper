@@ -7,10 +7,10 @@
 class Zipper
 {
 private:
-    std::map<char, int> ascii_dict;
+    std::map<std::string, int> current_words_dict;
 
 public:
-    Zipper();
+    //Zipper();
 
     std::vector<int> encode(std::string& text);
     void decode();

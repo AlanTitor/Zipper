@@ -40,6 +40,9 @@ const std::string &FileHandler::read_file()
         buffer.pop_back();
     }
 
+    file.seekg(0, std::ios::end);
+    file_size = file.tellg();
+
     return buffer;
 }
 
@@ -48,6 +51,13 @@ const void FileHandler::write_file(std::vector<int>& text)
     std::ofstream new_file(file_name_before_dot + ".zp", std::ios::binary);
 
     for(auto i : text){
-        new_file << i;
+        new_file << i << " ";
     }
+}
+
+const std::streampos FileHandler::get_file_size(){
+    if(file_size != 0){
+        return file_size;
+    }
+    throw "File is empty!";
 }

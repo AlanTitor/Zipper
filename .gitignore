@@ -1,0 +1,7 @@
+.vscode
+
+*.txt
+*.exe
+
+src/*.exe
+src/*.txt

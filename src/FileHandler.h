@@ -15,6 +15,7 @@ private:
 
     std::string file_name_before_dot;
     std::string file_extention;
+    std::streampos file_size;
 
 public:
     FileHandler(std::string file_name);
@@ -25,4 +26,6 @@ public:
     const std::string &read_file();
 
     const void write_file(std::vector<int>&);
+
+    const std::streampos get_file_size();
 };
